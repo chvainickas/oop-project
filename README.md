@@ -14,30 +14,30 @@ The user will be to register and login in to the portal. Their details will be w
 
 #### Class 1 - User
 ##### Data members
-String firstName
-String surName
-int age
-String email(in specific format)
-String loginName(only numbers and letters)
-String loginPassword(needs to be secure(1uppercase,1number,1specialcharacter))
-bool termsAndConditions
+-String firstName
+-String surName
+-int age
+-String email(in specific format)
+-String loginName(only numbers and letters)
+-String loginPassword(needs to be secure(1uppercase,1number,1specialcharacter))
+-bool termsAndConditions
 ##### Funcs
-termsAndConditions()
+-termsAndConditions()
 #### Class 2 - Registration
 ##### Data members
-super.*
+-super.*
 ##### Funcs
-setter&getters for data members
-verify each data member
-if verified write to csv file
+-setter&getters for data members
+-verify each data member
+-if verified write to csv file
 #### Class 3 - Login
 ##### Data members
-super(loginName,loginPassword)
-bool isUser
+-super(loginName,loginPassword)
+-bool isUser
 ##### Funcs
-login(super.loginName,super.loginPassword)
-loginMsg()
-timeout()
+-login(super.loginName,super.loginPassword)
+-loginMsg()
+-timeout()
 
 ### Quiz(Daniel)
 
