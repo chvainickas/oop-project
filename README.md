@@ -17,15 +17,16 @@ The user will be to register and login in to the portal. Their details will be w
 -String firstName
 -String surName
 -int age
--String email(in specific format)
+-String email(in specific format "string" + "@" + "string" "." + "string")
 -String loginName(only numbers and letters)
--String loginPassword(needs to be secure(1uppercase,1number,1specialcharacter))
--bool termsAndConditions
+-String loginPassword(needs to be secure(string with 1 uppercase,1 number,1 special character))
+-bool termsAndConditions(do users agreee to terms)
 ##### Funcs
--termsAndConditions()
+-termsAndConditions(if user accepts, registration is valid, if not, registration void(error message))
+-setters and getters
 #### Class 2 - Registration
 ##### Data members
--super.*
+-super.*(all data members from from User class)
 ##### Funcs
 -setter&getters for data members
 -verify each data member
@@ -38,7 +39,7 @@ The user will be to register and login in to the portal. Their details will be w
 -login(super.loginName,super.loginPassword)
 -loginMsg()
 -timeout()
-
+-setter and getters
 ### Quiz(Daniel)
 
 The user will take a quiz to see how their actions affect climate change. This section will have a defined instance of inheritance using the parent questions class
