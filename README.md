@@ -13,46 +13,30 @@ Our idea is to build a quiz for people to log in and test their knowledge of how
 The user will be to register and login in to the portal. Their details will be written to a file to log their details and keep a log of their results for the quiz.
 
 #### Class 1 - User
-
 ##### Data members
-
--String firstName
--String surName
--int age
 -String email(in specific format "string" + "@" + "string" "." + "string")
 -String loginName(only numbers and letters)
 -String loginPassword(needs to be secure(string with 1 uppercase,1 number,1 special character))
+##### Funcs
+verifyLogin()
+
+#### Class 2 - Admin
+##### Data members
+-String adminID
+##### Funcs
+addUser()
+removeUser()
+
+#### Class 3 - AppUser
+##### Data members
+-int userID
+-String firstName
+-String surName
+-int age
 -bool termsAndConditions(do users agreee to terms)
-
 ##### Funcs
-
--termsAndConditions(if user accepts, registration is valid, if not, registration void(error message))
-
-#### Class 2 - Registration
-
-##### Data members
-
--super.\*(all data members from from User class)
-
-##### Funcs
-
--setter&getters for data members
--verify each data member
--if verified write to csv file
-
-#### Class 3 - Login
-
-##### Data members
-
--super(loginName,loginPassword)
--bool isUser
-
-##### Funcs
-
--login(super.loginName,super.loginPassword)
--loginMsg()
--timeout()
--setter and getters
+register()
+login()
 
 ### Quiz(Daniel)
 
