@@ -1,5 +1,5 @@
 # OOP 50% project
-
+([Class Diagram](https://lucid.app/lucidchart/504d4fb6-3541-4ce5-b555-7d42c2ca3be7/edit?viewport_loc=-11%2C-11%2C2219%2C1067%2C0_0&invitationId=inv_bc6a68d9-ba3c-4121-86a5-77b80a45d6e5))
 ## Project idea
 
 A quiz to educate users about climate change and for them to be able to take action. This aim of this project will be to aid in achieving goal #13 of the Global Goals, which is Climate Action to urge people to take urgent action to combat climate change([ref](https://www.globalgoals.org/goals/13-climate-action/))
