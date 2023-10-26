@@ -56,6 +56,6 @@ The user will receive a grade on how they did on the quiz and information regard
 
 #### Class 1 - Results
 
-#### Class 2 - ??
+#### Class 2 - ResultsUI
 
-#### Class 3 - ??
+#### Class 3 - Review
