@@ -52,7 +52,7 @@ The user will take a quiz with a range of up to 20 questions in which the topic 
 
 ### Results(Maksym)
 
-The user will receive a grade on how they did on the quiz. The user might get an eco-friendly rating or certification based on their awareness level of how their actions affect the climate.
+The user will receive a grade on how they did on the quiz and information regarding each question that they answered. The user might get an eco-friendly rating or certification based on their awareness level of how their actions affect the climate.
 
 #### Class 1 - Results
 
