@@ -40,13 +40,15 @@ login()
 
 ### Quiz(Daniel)
 
-The user will take a quiz to see how their actions affect climate change. This section will have a defined instance of inheritance using the parent questions class
+The user will take a quiz with a range of up to 20 questions in which the topic is going to be the causes and consecuences of climate change. This section will have a defined instance of inheritance using the parent Quiz class and three children, which are going to be Question, Answer and the QuizUI as interface.
 
 #### Class 1 - Quiz
 
-#### Class 2 - ??
+#### Class 2 - Question
 
-#### Class 3 - ??
+#### Class 3 - Answer
+
+#### Class 4 - QuizUI
 
 ### Results(Maksym)
 
