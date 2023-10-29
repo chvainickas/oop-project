@@ -9,7 +9,7 @@ public class AppUser extends User {
 
     public AppUser(String email, String userName, String userPass, int userID, String firstName, String lastName,
             int age, boolean termsAndConditions) {
-        super(email, userName, userPass);
+        super(email, userName, userPass, lastName);
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
