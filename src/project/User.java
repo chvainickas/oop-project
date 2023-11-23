@@ -4,11 +4,13 @@ public class User {
     String email;
     String userName;
     String userPass;
+    String role;
 
-    public User(String email, String userName, String userPass) {
+    public User(String email, String userName, String userPass, String role) {
         this.email = email;
         this.userName = userName;
         this.userPass = userPass;
+        this.role = role;
     }
 
     public String getEmail() {
@@ -34,5 +36,14 @@ public class User {
     public void setUserPass(String userPass) {
         this.userPass = userPass;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 
 }
