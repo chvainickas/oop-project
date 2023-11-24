@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package assignment1;
+package project;
 
 /**
  *
@@ -43,80 +43,112 @@ public class QuizGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Climate quiz");
-        getContentPane().setLayout(null);
 
-        btnNextQuestion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNextQuestion.setText("Next");
-        getContentPane().add(btnNextQuestion);
-        btnNextQuestion.setBounds(239, 501, 137, 39);
 
         btnGroupAnswers.add(radAnswer1);
-        radAnswer1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radAnswer1.setText("Answer 1");
-        getContentPane().add(radAnswer1);
-        radAnswer1.setBounds(182, 410, 98, 22);
 
         btnGroupAnswers.add(radAnswer2);
-        radAnswer2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radAnswer2.setText("Answer 2");
-        getContentPane().add(radAnswer2);
-        radAnswer2.setBounds(182, 450, 98, 22);
 
         btnGroupAnswers.add(radAnswer3);
-        radAnswer3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radAnswer3.setText("Answer 3");
-        getContentPane().add(radAnswer3);
-        radAnswer3.setBounds(404, 410, 98, 22);
 
         btnGroupAnswers.add(radAnswer4);
-        radAnswer4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radAnswer4.setText("Answer 4");
-        getContentPane().add(radAnswer4);
-        radAnswer4.setBounds(404, 450, 98, 22);
 
-        lblAnswer1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblAnswer1.setText("A.");
-        getContentPane().add(lblAnswer1);
-        lblAnswer1.setBounds(134, 410, 30, 17);
 
-        lblAnswer2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblAnswer2.setText("B.");
-        getContentPane().add(lblAnswer2);
-        lblAnswer2.setBounds(134, 452, 30, 17);
 
-        lblAnswer3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblAnswer3.setText("C.");
-        getContentPane().add(lblAnswer3);
-        lblAnswer3.setBounds(356, 412, 30, 17);
 
-        lblAnswer4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblAnswer4.setText("D.");
-        getContentPane().add(lblAnswer4);
-        lblAnswer4.setBounds(356, 452, 30, 16);
 
-        lblQuestionTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblQuestionTitle.setText("Question number");
-        getContentPane().add(lblQuestionTitle);
-        lblQuestionTitle.setBounds(134, 344, 139, 22);
 
-        lblQuestion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblQuestion.setText("Question");
-        getContentPane().add(lblQuestion);
-        lblQuestion.setBounds(291, 349, 293, 17);
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnExit.setText("Return to menu");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit);
-        btnExit.setBounds(527, 580, 155, 39);
 
-        imgQuestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assignment1/img/cat.jpg"))); // NOI18N
-        getContentPane().add(imgQuestion);
-        imgQuestion.setBounds(134, 31, 375, 301);
+        imgQuestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/img/cat.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblQuestionTitle)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAnswer1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAnswer2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radAnswer1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radAnswer2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAnswer4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAnswer3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radAnswer3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radAnswer4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(138, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQuestionTitle)
+                    .addComponent(lblQuestion))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblAnswer1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(radAnswer1)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radAnswer2)
+                                .addComponent(lblAnswer2))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radAnswer3)
+                            .addComponent(lblAnswer3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radAnswer4)
+                            .addComponent(lblAnswer4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(29, 29, 29)
+                .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
