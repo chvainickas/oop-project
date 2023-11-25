@@ -26,21 +26,136 @@ public class RegistrationGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        registrationFormLbl = new javax.swing.JLabel();
+        firstNameLbl = new javax.swing.JLabel();
+        lastNameLbl = new javax.swing.JLabel();
+        ageLbl = new javax.swing.JLabel();
+        emailLbl = new javax.swing.JLabel();
+        usernameLbl = new javax.swing.JLabel();
+        passwordLbl = new javax.swing.JLabel();
+        firstNameInput = new javax.swing.JTextField();
+        lastNameInput = new javax.swing.JTextField();
+        ageInput = new javax.swing.JTextField();
+        emailInput = new javax.swing.JTextField();
+        usernameRegInput = new javax.swing.JTextField();
+        passwordRegInput = new javax.swing.JTextField();
+        registerBtn = new javax.swing.JButton();
+        termsAndConditionsCheckBox = new javax.swing.JCheckBox();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        registrationFormLbl.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
+        registrationFormLbl.setText("Registration Form");
+
+        firstNameLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        firstNameLbl.setText("First Name:");
+
+        lastNameLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        lastNameLbl.setText("Last Name:");
+
+        ageLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        ageLbl.setText("Age:");
+
+        emailLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        emailLbl.setText("Email:");
+
+        usernameLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        usernameLbl.setText("Username:");
+
+        passwordLbl.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        passwordLbl.setText("Password:");
+
+        registerBtn.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        registerBtn.setText("Submit");
+
+        termsAndConditionsCheckBox.setText("  I agree to the Terms and Conditions.    ");
+        termsAndConditionsCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        termsAndConditionsCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                termsAndConditionsCheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(termsAndConditionsCheckBox)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lastNameLbl)
+                                    .addComponent(firstNameLbl)
+                                    .addComponent(ageLbl)
+                                    .addComponent(emailLbl)
+                                    .addComponent(usernameLbl)
+                                    .addComponent(passwordLbl))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailInput)
+                                    .addComponent(ageInput)
+                                    .addComponent(lastNameInput)
+                                    .addComponent(firstNameInput)
+                                    .addComponent(usernameRegInput)
+                                    .addComponent(passwordRegInput))))
+                        .addGap(62, 62, 62))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addComponent(registrationFormLbl)
+                .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(registrationFormLbl)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLbl)
+                    .addComponent(firstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNameLbl)
+                    .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ageLbl)
+                    .addComponent(ageInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLbl)
+                    .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameLbl)
+                    .addComponent(usernameRegInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLbl)
+                    .addComponent(passwordRegInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(termsAndConditionsCheckBox)
+                .addGap(18, 18, 18)
+                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void termsAndConditionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termsAndConditionsCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_termsAndConditionsCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +193,20 @@ public class RegistrationGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ageInput;
+    private javax.swing.JLabel ageLbl;
+    private javax.swing.JTextField emailInput;
+    private javax.swing.JLabel emailLbl;
+    private javax.swing.JTextField firstNameInput;
+    private javax.swing.JLabel firstNameLbl;
+    private javax.swing.JTextField lastNameInput;
+    private javax.swing.JLabel lastNameLbl;
+    private javax.swing.JLabel passwordLbl;
+    private javax.swing.JTextField passwordRegInput;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JLabel registrationFormLbl;
+    private javax.swing.JCheckBox termsAndConditionsCheckBox;
+    private javax.swing.JLabel usernameLbl;
+    private javax.swing.JTextField usernameRegInput;
     // End of variables declaration//GEN-END:variables
 }
