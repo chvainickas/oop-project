@@ -11,23 +11,24 @@ package project;
  * 24 oct 2023
  */
 public class Question extends Quiz{
-    private int number;
+    private int number, section;
     private String text;
-    private String topic;
+    private Answer[] answers;
 
     public Question() {
     }
 
-    public Question(int number, String text, String topic) {
+    public Question(int number, String text, int section) {
         this.number = number;
         this.text = text;
-        this.topic = topic;
+        this.section = section;
     }
 
-    public void load(){
-        //load questions into array
+    public void setAnswers(Answer[] answers) {
+        this.answers = answers;
     }
 
+    
     public void setNumber(int number) {
         this.number = number;
     }
@@ -43,6 +44,8 @@ public class Question extends Quiz{
     public String getText() {
         return text;
     }
-    
-    
+
+    public Answer[] getAnswers() {
+        return answers;
+    }
 }

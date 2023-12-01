@@ -13,18 +13,30 @@ package project;
 public class Answer extends Quiz{
     private char option;
     private String text;
+    private boolean isCorrect;
 
-    public Answer(){
-        
+    public Answer() {
     }
-    
-    public void load(){
-        //Load answers into Question
+
+    public Answer(char option, String text, boolean isCorrect) {
+        this.option = option;
+        this.text = text;
+        this.isCorrect = isCorrect;
+    }
+
+    public char getOption() {
+        return option;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public boolean isIsCorrect() {
+        return isCorrect;
     }
 
     public boolean checkAnswer(char option){
-        
         return false;
     }
-    
 }
