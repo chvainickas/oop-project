@@ -6,8 +6,8 @@ package project;
 
 /**
  *
- * @author pylyp
+ * @author edward
  */
-public class Review extends Results {
+public class Register {
     
 }
