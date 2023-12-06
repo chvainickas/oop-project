@@ -32,11 +32,7 @@ public class Answer extends Quiz{
         return text;
     }
 
-    public boolean isIsCorrect() {
+    public boolean isCorrect() {
         return isCorrect;
-    }
-
-    public boolean checkAnswer(char option){
-        return false;
     }
 }
