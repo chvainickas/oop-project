@@ -1,2 +1,4 @@
 email,userName,userPass,role,userID,firstName,lastName,age,termsAndConditions
-user@example.com,username,password,Regular,1,John,Doe,25,true
+user@example.com,username,password,User,1,John,Doe,25,true
+admin@example.com,admin,admin,Admin,2
+

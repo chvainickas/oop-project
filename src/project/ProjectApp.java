@@ -17,11 +17,16 @@ public class ProjectApp {
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String[] args) throws IOException {
-		AppUser newUser = new AppUser("user@example.com", "username", "password", "Regular", 1, "John", "Doe", 25,
-				true);
-		newUser.register();
-		JOptionPane.showMessageDialog(null, "Registration successful!");
+	public static void main(String[] args) {
+		// Example usage of login
+		String inputUsername = JOptionPane.showInputDialog("Enter username:");
+		String inputPassword = JOptionPane.showInputDialog("Enter password:");
+
+		if (AppUser.login(inputUsername, inputPassword)) {
+			JOptionPane.showMessageDialog(null, "Login successful!");
+		} else {
+			JOptionPane.showMessageDialog(null, "Invalid credentials. Login failed.");
+		}
 	}
 
 }

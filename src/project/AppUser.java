@@ -66,7 +66,6 @@ public class AppUser extends User {
     @Override
     public void register() {
         try (FileWriter csvWriter = new FileWriter("/home/edward/workspace/oop-project/src/project/users.csv", true)) {
-            // Appending user details to the CSV file
             csvWriter.append(email).append(",");
             csvWriter.append(userName).append(",");
             csvWriter.append(userPass).append(",");
