@@ -50,9 +50,7 @@ public class ReviewGUI extends javax.swing.JFrame {
         exitBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(754, 503));
         setMinimumSize(new java.awt.Dimension(754, 503));
-        setPreferredSize(new java.awt.Dimension(754, 503));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Review. You can check correct answers compare your's one.");

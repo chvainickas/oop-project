@@ -311,14 +311,17 @@ public class QuizGUI extends javax.swing.JFrame {
 
             }else{
                 //Insert score in database
+                int finalScore = quiz.calculateScore();
                 ManageDB db = new ManageDB();
                 ManageDB.setConnection();
-                db.updateScore(1, quiz.calculateScore());
+                db.updateScore(1, finalScore);
                 
                 //Call to the results form (Maks results form)
                 setVisible(false);
-                ResultsGUI resultGui = new ResultsGUI();
-                resultGui.setVisible(true);
+                ResultsGUI resultGUI = new ResultsGUI();
+                //set quiz info at result GUI
+                resultGUI.setQuiz(quiz);
+                resultGUI.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnNextQuestionActionPerformed

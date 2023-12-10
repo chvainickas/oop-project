@@ -13,11 +13,22 @@ public class ResultsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ResultsGUI
      */
+    Quiz quiz;
+    
     public ResultsGUI() {
         initComponents();
         
         //Center form in screen
         setLocationRelativeTo(null);
+    }
+    
+    public void setQuiz(Quiz quiz){
+        this.quiz = quiz;
+        
+        if(quiz != null){
+            //If quiz is loaded
+            pointsLBL.setText(quiz.finalScore + "/" + quiz.questionList.length);
+        }
     }
 
     /**
@@ -105,7 +116,7 @@ public class ResultsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitBTNActionPerformed
 
     private void reviewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBTNActionPerformed
