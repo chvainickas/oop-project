@@ -15,6 +15,9 @@ public class ReviewGUI extends javax.swing.JFrame {
      */
     public ReviewGUI() {
         initComponents();
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
     }
 
     /**

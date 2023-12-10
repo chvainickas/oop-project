@@ -316,6 +316,9 @@ public class QuizGUI extends javax.swing.JFrame {
                 db.updateScore(1, quiz.calculateScore());
                 
                 //Call to the results form (Maks results form)
+                setVisible(false);
+                ResultsGUI resultGui = new ResultsGUI();
+                resultGui.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnNextQuestionActionPerformed

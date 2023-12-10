@@ -15,7 +15,7 @@ public class ProjectApp {
 	 */
 	public static void main(String[] args) {
 		// TODO code application logic here
-                QuizIntroGUI gui = new QuizIntroGUI();
+                LoginGUI gui = new LoginGUI();
                 gui.setVisible(true); 
 	}
 	

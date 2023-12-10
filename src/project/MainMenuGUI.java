@@ -15,6 +15,9 @@ public class MainMenuGUI extends javax.swing.JFrame {
      */
     public MainMenuGUI() {
         initComponents();
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -33,8 +36,18 @@ public class MainMenuGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         quizMenuBtn.setText("Quiz Menu");
+        quizMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quizMenuBtnActionPerformed(evt);
+            }
+        });
 
         adminBtn.setText("Admin Panel");
+        adminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBtnActionPerformed(evt);
+            }
+        });
 
         mainMenuFormLbl.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
         mainMenuFormLbl.setText("Main Menu");
@@ -69,6 +82,18 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void quizMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizMenuBtnActionPerformed
+        setVisible(false);
+        QuizIntroGUI quizInt = new QuizIntroGUI();
+        quizInt.setVisible(true);
+    }//GEN-LAST:event_quizMenuBtnActionPerformed
+
+    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
+        setVisible(false);
+        AdminForm adminf = new AdminForm();
+        adminf.setVisible(true);
+    }//GEN-LAST:event_adminBtnActionPerformed
 
     /**
      * @param args the command line arguments

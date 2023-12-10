@@ -60,11 +60,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Quiz Menu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quizMenuBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="adminBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Admin Panel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="mainMenuFormLbl">
       <Properties>

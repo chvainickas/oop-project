@@ -15,6 +15,9 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     public LoginGUI() {
         initComponents();
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -44,6 +47,11 @@ public class LoginGUI extends javax.swing.JFrame {
 
         verifyLoginBtn.setText("Login");
         verifyLoginBtn.setActionCommand("");
+        verifyLoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verifyLoginBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +96,13 @@ public class LoginGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void verifyLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyLoginBtnActionPerformed
+        //Assume that login is correct
+        setVisible(false);
+        MainMenuGUI menuGui = new MainMenuGUI();
+        menuGui.setVisible(true);
+    }//GEN-LAST:event_verifyLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments

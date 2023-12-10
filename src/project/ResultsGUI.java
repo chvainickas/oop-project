@@ -15,6 +15,9 @@ public class ResultsGUI extends javax.swing.JFrame {
      */
     public ResultsGUI() {
         initComponents();
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,7 +38,6 @@ public class ResultsGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(754, 503));
         setMinimumSize(new java.awt.Dimension(754, 503));
-        setPreferredSize(new java.awt.Dimension(754, 503));
 
         titleLBL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         titleLBL.setText("Congratulations! You passed the test.");
@@ -108,6 +110,9 @@ public class ResultsGUI extends javax.swing.JFrame {
 
     private void reviewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBTNActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        ReviewGUI revGUI = new ReviewGUI();
+        revGUI.setVisible(true);
     }//GEN-LAST:event_reviewBTNActionPerformed
 
     /**
