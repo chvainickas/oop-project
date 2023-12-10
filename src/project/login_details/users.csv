@@ -1,1 +1,2 @@
 email,userName,userPass,role,userID,firstName,lastName,age,terms,adminID
+test@hotmail.com,user1,abc123.,user,1,testy,testerson,42,1,1

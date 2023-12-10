@@ -17,6 +17,12 @@ public class QuizIntroGUI extends javax.swing.JFrame {
      */
     public QuizIntroGUI() {
         initComponents();
+        
+        //Load Database
+        ManageDB db = new ManageDB();
+        db.createDB(); //Create database if not created already
+        db.createTables(); //Create tables if not created already
+        db.insertUsers(); //Insert users from file
               
         //Center form in screen
         setLocationRelativeTo(null);

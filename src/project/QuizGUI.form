@@ -35,35 +35,20 @@
                       <Component id="lblImg" min="-2" pref="366" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
-                      <Component id="lblAnswerB" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="radAnswerB" min="-2" pref="634" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
-                      <Component id="lblAnswerC" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="radAnswerC" min="-2" pref="634" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
-                      <Component id="lblAnswerD" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="radAnswerD" min="-2" pref="634" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
                       <Component id="btnNextQuestion" min="-2" pref="147" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblAnswerA" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="radAnswerA" min="-2" pref="634" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblAnswerB" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblAnswerC" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblAnswerD" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblAnswerA" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="radAnswerD" min="-2" pref="682" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblQuestionTitle" min="-2" pref="151" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -74,6 +59,9 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblSection" min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="radAnswerA" alignment="0" min="-2" pref="682" max="-2" attributes="0"/>
+                          <Component id="radAnswerB" alignment="0" min="-2" pref="682" max="-2" attributes="0"/>
+                          <Component id="radAnswerC" alignment="0" min="-2" pref="682" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

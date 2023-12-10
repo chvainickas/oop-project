@@ -34,13 +34,13 @@ public class Quiz {
         questionList[6] = new Question(7, "Which land-based ecosystem has the most biodiversity?", "biodiversity.jpg", "Ecosystems");
         questionList[7] = new Question(8, "What is known as the \"Sixth Extinction\"?", "dodo.jpg", "Ecosystems");
         questionList[8] = new Question(9, "Global forests removed how much of the global human fossil fuel emissions annually from 1990 to 2007?", "forests.jpg", "Ecosystems");
-        questionList[9] = new Question(10, "How much of the Earth's land is covered by forests?", "moreforests.jpg", "Ecosystems");
+        questionList[9] = new Question(10, "How much of the Earths land is covered by forests?", "moreforests.jpg", "Ecosystems");
         
         questionList[10] = new Question(11, "10,000 years ago, wild animals made up 99% of the weight of all vertebrates on Earth, and humans made up 1%. What is the composition of global vertebrate biomass today?", "pigs.jpg", "Wildlife");
         questionList[11] = new Question(12, "What is the percentage of dependance on pollinators of our crops?", "pollinator.jpg", "Wildlife");
         questionList[12] = new Question(13, "How many times the current rate of extinction of species is bigger than would it would be at natural rate?", "Extinct-Animals.jpg", "Wildlife");
         questionList[13] = new Question(14, "What is the main cause of the forest biodiversity loss?", "rabbit.jpg", "Wildlife");
-        questionList[14] = new Question(15, "Which of these animal groups has the highest proportion of threatened species?", "axolote.jpeg", "Wildlife");
+        questionList[14] = new Question(15, "Which of these animal groups has the highest proportion of threatened species?", "axolote.jpeg", "Wildlife");        
     }
     
     public void loadAnswers(){
@@ -164,7 +164,7 @@ public class Quiz {
         }
         return finalScore;
     }
-
+            
     public Question[] getQuestionList() {
         return questionList;
     }
