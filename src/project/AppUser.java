@@ -1,85 +1,59 @@
 package project;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
 public class AppUser extends User {
-    int userID;
-    String firstName;
-    String lastName;
-    int age;
-    boolean termsAndConditions;
 
     public AppUser(String email, String userName, String userPass, String role, int userID, String firstName,
             String lastName,
-            int age, boolean termsAndConditions) {
-        super(email, userName, userPass, role);
-        this.userID = userID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.termsAndConditions = termsAndConditions;
+            int age) {
+        super(email, userName, userPass, role, userID, firstName, lastName, age);
     }
 
-    public int getUserID() {
-        return userID;
+    // converts the java objects into a csv string
+    public String toCSVString() {
+        return String.format("%s,%s,%s,%s,%d,%s,%s,%d", email, userName, userPass, role, userID, firstName, lastName,
+                age);
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public boolean isTermsAndConditions() {
-        return termsAndConditions;
-    }
-
-    public void setTermsAndConditions(boolean termsAndConditions) {
-        this.termsAndConditions = termsAndConditions;
-    }
-
-    @Override
+    // this writes the converted csv string to file
     public void register() {
         try (FileWriter csvWriter = new FileWriter("/home/edward/workspace/oop-project/src/project/users.csv", true)) {
-            csvWriter.append(email).append(",");
-            csvWriter.append(userName).append(",");
-            csvWriter.append(userPass).append(",");
-            csvWriter.append(role).append(",");
-            csvWriter.append(Integer.toString(userID)).append(",");
-            csvWriter.append(firstName).append(",");
-            csvWriter.append(lastName).append(",");
-            csvWriter.append(Integer.toString(age)).append(",");
-            csvWriter.append(Boolean.toString(termsAndConditions));
-            csvWriter.append("\n");
-
+            csvWriter.append(toCSVString()).append("\n");
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    static int getNextUserID() {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader("/home/edward/workspace/oop-project/src/project/users.csv"))) {
+            String lastLine = null;
+            String currentLine;
+            while ((currentLine = br.readLine()) != null) { // iterates to get to last line
+                lastLine = currentLine;
+            }
+
+            if (lastLine != null) {
+                String[] parts = lastLine.split(",");
+                if (parts.length >= 5) { // make sure there is user id
+                    try {
+                        return Integer.parseInt(parts[4].trim()) + 1; // add one to userID
+                    } catch (NumberFormatException e) { // if there is no number in userID
+                        System.out.println("Skipping line: " + lastLine);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 1; // incase csv is empty
     }
 }

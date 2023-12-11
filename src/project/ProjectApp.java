@@ -4,9 +4,6 @@
  */
 package project;
 
-import java.io.IOException;
-
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,14 +16,8 @@ public class ProjectApp {
 	 */
 	public static void main(String[] args) {
 		// Example usage of login
-		String inputUsername = JOptionPane.showInputDialog("Enter username:");
-		String inputPassword = JOptionPane.showInputDialog("Enter password:");
+		LoginGUI login = new LoginGUI();
+                login.setVisible(true);
 
-		if (AppUser.login(inputUsername, inputPassword)) {
-			JOptionPane.showMessageDialog(null, "Login successful!");
-		} else {
-			JOptionPane.showMessageDialog(null, "Invalid credentials. Login failed.");
-		}
-	}
-
+}
 }

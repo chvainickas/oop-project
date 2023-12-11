@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/edward/workspace/oop-project/src/project/ReviewGUI.java</file>
+            <file>file:/home/edward/workspace/oop-project/src/project/ProjectApp.java</file>
             <file>file:/home/edward/workspace/oop-project/src/project/AdminForm.java</file>
             <file>file:/home/edward/workspace/oop-project/src/project/RegistrationGUI.java</file>
-            <file>file:/home/edward/workspace/oop-project/src/project/QuizIntroGUI.java</file>
+            <file>file:/home/edward/workspace/oop-project/src/project/AppUser.java</file>
             <file>file:/home/edward/workspace/oop-project/src/project/LoginGUI.java</file>
             <file>file:/home/edward/workspace/oop-project/src/project/MainMenuGUI.java</file>
-            <file>file:/home/edward/workspace/oop-project/src/project/ResultsGUI.java</file>
+            <file>file:/home/edward/workspace/oop-project/src/project/User.java</file>
         </group>
     </open-files>
 </project-private>
