@@ -24,11 +24,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="199" max="32767" attributes="0"/>
+              <EmptySpace pref="151" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="mainMenuFormLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="welcomeLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -45,7 +47,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="mainMenuFormLbl" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="mainMenuFormLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="welcomeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Component id="quizMenuBtn" min="-2" pref="99" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -78,6 +83,11 @@
           <Font name="Liberation Sans" size="48" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Main Menu"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="welcomeLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Welcome User!"/>
       </Properties>
     </Component>
   </SubComponents>
