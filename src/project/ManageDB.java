@@ -13,7 +13,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Types;
 /**
  *
@@ -112,43 +111,30 @@ public class ManageDB {
                 int age = Integer.parseInt(values[7]);
                 boolean terms = Boolean.parseBoolean(values[8]);
                 
+                String queryIns = "INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?,?)";
                 try{
-                    //Check if the user is already in database
-                    String tblUser = "SELECT userID FROM users WHERE userID=" + userID;
-                    Statement st = conn.createStatement();
-                    ResultSet rs = st.executeQuery(tblUser);
-                    if(!rs.next())
-                    {
-                        //Result is empty, so userID doesn't exist
-                        String queryIns = "INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?,?)";
-                        try{
-                            //Create prepared statement
-                            PreparedStatement pstmt = conn.prepareStatement(queryIns);
-                            //Set variables for table: userID, userName, password, score, firstName, lastName, email, role, age, terms
-                            pstmt.setInt(1, userID);
-                            pstmt.setString(2, userName);
-                            pstmt.setString(3, userPass);
-                            pstmt.setNull(4, Types.NULL);
-                            pstmt.setString(5, firstName);
-                            pstmt.setString(6, lastName);
-                            pstmt.setString(7, email);
-                            pstmt.setString(8, role);
-                            pstmt.setInt(9, age);
-                            pstmt.setBoolean(10, terms);
-
-                            pstmt.execute();
-                            //Close statement after use
-                            pstmt.close();
-                        }catch(SQLException e)
-                        {
-                            System.out.println("Error: " + e);
-                        }
-                    }
-                    st.close();
+                    //Create prepared statement
+                    PreparedStatement pstmt = conn.prepareStatement(queryIns);
+                    //Set variables for table: userID, userName, password, score, firstName, lastName, email, role, age, terms
+                    pstmt.setInt(1, userID);
+                    pstmt.setString(2, userName);
+                    pstmt.setString(3, userPass);
+                    pstmt.setNull(4, Types.NULL);
+                    pstmt.setString(5, firstName);
+                    pstmt.setString(6, lastName);
+                    pstmt.setString(7, email);
+                    pstmt.setString(8, role);
+                    pstmt.setInt(9, age);
+                    pstmt.setBoolean(10, terms);
+                    
+                    pstmt.execute();
+                    //Close statement after use
+                    pstmt.close();
                 }catch(SQLException e)
                 {
-                    System.out.println("Error in search: " + e);
+                    System.out.println("Error: " + e);
                 }
+
             }
             
             if(lineCounter == 0){
