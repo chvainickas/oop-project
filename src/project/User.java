@@ -100,7 +100,7 @@ class User {
     }
 
     public static boolean login(String inputUsername, String inputPassword) {
-        String filePath = "src/project/users.csv"; // directory to file path
+        String filePath = "src/project/users.csv"; // directory to file path 
 
         try (BufferedReader csvReader = new BufferedReader(new FileReader(filePath))) {
             String line;
