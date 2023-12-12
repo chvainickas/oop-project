@@ -33,7 +33,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         quizMenuBtn = new javax.swing.JButton();
@@ -44,6 +44,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         quizMenuBtn.setText("Quiz Menu");
+        quizMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quizMenuBtnActionPerformed(evt);
+            }
+        });
 
         adminBtn.setText("Admin Panel");
 
@@ -55,42 +60,44 @@ public class MainMenuGUI extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(151, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                layout.createSequentialGroup()
-                                                        .addComponent(mainMenuFormLbl)
-                                                        .addGap(76, 76, 76)
-                                                        .addComponent(welcomeLbl)
-                                                        .addGap(77, 77, 77))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                .createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(quizMenuBtn,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 214,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(204, 204, 204)))));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(151, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(mainMenuFormLbl)
+                        .addGap(76, 76, 76)
+                        .addComponent(welcomeLbl)
+                        .addGap(77, 77, 77))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(204, 204, 204))))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(mainMenuFormLbl)
-                                        .addComponent(welcomeLbl))
-                                .addGap(61, 61, 61)
-                                .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminBtn)
-                                .addContainerGap(207, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mainMenuFormLbl)
+                    .addComponent(welcomeLbl))
+                .addGap(61, 61, 61)
+                .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminBtn)
+                .addContainerGap(207, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void quizMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizMenuBtnActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        QuizIntroGUI quizInt = new QuizIntroGUI();
+        quizInt.setVisible(true);
+    }//GEN-LAST:event_quizMenuBtnActionPerformed
 
     /**
      * @param args the command line arguments

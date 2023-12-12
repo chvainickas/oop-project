@@ -47,9 +47,12 @@ public class LoginGUI extends javax.swing.JFrame {
                 if ("Admin".equals(user.getRole())) { // if the role is admin open the admin panel
                     AdminGUI adminGUI = new AdminGUI();
                     adminGUI.setVisible(true);
+                    this.dispose();
                 } else { // otherwise show main menu
                     MainMenuGUI mainMenu = new MainMenuGUI(currentUser);
                     mainMenu.setVisible(true);
+                                        this.dispose();
+
                 }
                 loginSuccessful = true;
                 break;
