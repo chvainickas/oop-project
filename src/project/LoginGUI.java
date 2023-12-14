@@ -70,7 +70,7 @@ public class LoginGUI extends javax.swing.JFrame {
         List<User> userList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(
-                new FileReader("/home/edward/workspace/oop-project/src/project/users.csv"))) {
+                new FileReader("src/project/users.csv"))) {
             String line;
             br.readLine(); // ignore headings
 
