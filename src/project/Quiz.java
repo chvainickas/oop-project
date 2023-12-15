@@ -145,8 +145,8 @@ public class Quiz {
         
         Answer[] answers15 = new Answer[4];
         answers15[0] = new Answer('A', "Mammals", false);
-        answers15[1] = new Answer('B', "Birds", true);
-        answers15[2] = new Answer('C', "Anphibians", false);
+        answers15[1] = new Answer('B', "Birds", false);
+        answers15[2] = new Answer('C', "Anphibians", true);
         answers15[3] = new Answer('D', "Reptiles", false);
         questionList[14].setAnswers(answers15);
     }
