@@ -14,13 +14,12 @@ public class MainMenuGUI extends javax.swing.JFrame {
     /**
      * Creates new form MainMenuGUI
      */
-    public MainMenuGUI(User user) {
-        initComponents();
-        this.currentUser = user;
-        welcomeMsg();
+    public MainMenuGUI() {
+        initComponents();        
     }
 
-    private void welcomeMsg() {
+        public void welcomeMsg(User user) {
+        this.currentUser = user;
         if (currentUser != null) {
             welcomeLbl.setText("Welcome, " + currentUser.getFirstName() + "!");
         }
@@ -137,7 +136,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenuGUI(user).setVisible(true);
+                new MainMenuGUI().setVisible(true);
             }
         });
     }

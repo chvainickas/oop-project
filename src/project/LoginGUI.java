@@ -49,7 +49,8 @@ public class LoginGUI extends javax.swing.JFrame {
                     adminGUI.setVisible(true);
                     this.dispose();
                 } else { // otherwise show main menu
-                    MainMenuGUI mainMenu = new MainMenuGUI(currentUser);
+                    MainMenuGUI mainMenu = new MainMenuGUI();
+                    mainMenu.welcomeMsg(user);
                     mainMenu.setVisible(true);
                                         this.dispose();
 
