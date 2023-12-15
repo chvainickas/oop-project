@@ -95,7 +95,7 @@ public class Quiz {
         questionList[6].setAnswers(answers7);
         
         Answer[] answers8 = new Answer[4];
-        answers8[0] = new Answer('A', "The fact that there are six major species in the world today that are facing the threat of extinction", false);
+        answers8[0] = new Answer('A', "The fact that there are six major species in the world today that are facing extinction", false);
         answers8[1] = new Answer('B', "The sixth species that became extinct", false);
         answers8[2] = new Answer('C', "The Sequel to the movie The Fifth Element", false);
         answers8[3] = new Answer('D', "The current period of time where species are disappearing at an extreme rate", true);
