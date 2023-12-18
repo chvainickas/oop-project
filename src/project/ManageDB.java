@@ -6,8 +6,6 @@
 package project;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
@@ -27,7 +25,7 @@ public class ManageDB {
     public static Connection setConnection(){
         //Create database if not exists
         String user = "root";
-        String pwd = "BDRvKy4bZely4JrAc2Pf";
+        String pwd = "maxsasa1111";//chsnge for your's password
         String dbName = "climateChangeQuiz";
         String url = "jdbc:mysql://localhost:3306/" + dbName;
         
@@ -44,7 +42,7 @@ public class ManageDB {
     public void createDB(){
         String url = "jdbc:mysql://localhost:3306";
         String user = "root";
-        String pwd = "BDRvKy4bZely4JrAc2Pf";
+        String pwd = "maxsasa1111";
         try{
             conn = DriverManager.getConnection(url, user, pwd);
         }catch(SQLException sqlE){
@@ -66,7 +64,7 @@ public class ManageDB {
         //Once the database is created, it sets the connection to it
         String dbName = "climateChangeQuiz";
         user = "root";
-        pwd = "BDRvKy4bZely4JrAc2Pf";
+        pwd = "maxsasa1111";
         url = "jdbc:mysql://localhost:3306/" + dbName;
         
         try{

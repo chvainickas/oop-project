@@ -4,6 +4,8 @@
  */
 package project;
 
+import java.awt.Color;
+
 /**
  *
  * @author pylyp
@@ -13,8 +15,32 @@ public class ResultsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ResultsGUI
      */
+    Results res;
+    Quiz quiz;
+    
     public ResultsGUI() {
         initComponents();
+        //Set background color for elements
+        getContentPane().setBackground(Color.decode("#DDA0DD"));
+        //Center form in screen
+        setLocationRelativeTo(null);
+        
+         
+    }
+    
+    public void setQuiz(Quiz quiz){
+        this.quiz = quiz;
+        Results res = new Results();
+        
+        if(quiz != null){
+            //If quiz is loaded
+            //Insert score in database
+            int finalScore = res.calculateScore(quiz);
+            //ManageDB db = new ManageDB();
+            //ManageDB.setConnection();
+            //db.updateScore(1, finalScore);
+            pointsLBL.setText(res.score + "/" + quiz.questionList.length);
+        }
     }
 
     /**
@@ -35,7 +61,6 @@ public class ResultsGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(754, 503));
         setMinimumSize(new java.awt.Dimension(754, 503));
-        setPreferredSize(new java.awt.Dimension(754, 503));
 
         titleLBL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         titleLBL.setText("Congratulations! You passed the test.");
@@ -103,11 +128,15 @@ public class ResultsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitBTNActionPerformed
 
     private void reviewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBTNActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        ReviewGUI revGUI = new ReviewGUI();
+        revGUI.setRev(quiz);
+        revGUI.setVisible(true);
     }//GEN-LAST:event_reviewBTNActionPerformed
 
     /**

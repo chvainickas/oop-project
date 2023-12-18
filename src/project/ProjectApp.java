@@ -4,6 +4,7 @@
  */
 package project;
 
+
 /**
  *
  * @author edward
@@ -14,9 +15,9 @@ public class ProjectApp {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		// TODO code application logic here
-                QuizIntroGUI gui = new QuizIntroGUI();
-                gui.setVisible(true); 
-	}
-	
+		// Example usage of login
+		LoginGUI login = new LoginGUI();
+                login.setVisible(true);
+
+}
 }

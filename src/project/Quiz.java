@@ -95,7 +95,7 @@ public class Quiz {
         questionList[6].setAnswers(answers7);
         
         Answer[] answers8 = new Answer[4];
-        answers8[0] = new Answer('A', "The fact that there are six major species in the world today that are facing the threat of extinction", false);
+        answers8[0] = new Answer('A', "The fact that there are six major species in the world today that are facing extinction", false);
         answers8[1] = new Answer('B', "The sixth species that became extinct", false);
         answers8[2] = new Answer('C', "The Sequel to the movie The Fifth Element", false);
         answers8[3] = new Answer('D', "The current period of time where species are disappearing at an extreme rate", true);
@@ -145,24 +145,10 @@ public class Quiz {
         
         Answer[] answers15 = new Answer[4];
         answers15[0] = new Answer('A', "Mammals", false);
-        answers15[1] = new Answer('B', "Birds", true);
-        answers15[2] = new Answer('C', "Anphibians", false);
+        answers15[1] = new Answer('B', "Birds", false);
+        answers15[2] = new Answer('C', "Anphibians", true);
         answers15[3] = new Answer('D', "Reptiles", false);
         questionList[14].setAnswers(answers15);
-    }
-    
-    public int calculateScore(){
-        if(userAnswers.size() == questionList.length && userAnswers.size() == 15){
-            //If both have 15
-            for(int i=0; i<userAnswers.size(); i++)
-            {
-                Question q = questionList[i];
-                if(q.checkAnswer(userAnswers.get(i))){
-                    finalScore++;
-                }
-            }
-        }
-        return finalScore;
     }
             
     public Question[] getQuestionList() {

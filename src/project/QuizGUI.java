@@ -310,12 +310,13 @@ public class QuizGUI extends javax.swing.JFrame {
                 radAnswerD.setText(ansD.getText());
 
             }else{
-                //Insert score in database
-                ManageDB db = new ManageDB();
-                ManageDB.setConnection();
-                db.updateScore(1, quiz.calculateScore());
-                
+                              
                 //Call to the results form (Maks results form)
+                setVisible(false);
+                ResultsGUI resultGUI = new ResultsGUI();
+                //set quiz info at result GUI
+                resultGUI.setQuiz(quiz);
+                resultGUI.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnNextQuestionActionPerformed
