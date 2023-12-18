@@ -37,7 +37,7 @@ public class LoginGUI extends javax.swing.JFrame {
     // verify login logic
     private void verifyLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {
         String enteredUsername = usernameInput.getText();
-        String enteredPassword = passwordInput.getText();
+        String enteredPassword = new String(passwordInput.getPassword());
 
         List<User> userList = User.readUserDataFromCSV();
 
@@ -85,8 +85,8 @@ public class LoginGUI extends javax.swing.JFrame {
         inputPane = new javax.swing.JPanel();
         usernameInput = new javax.swing.JTextField();
         usernameLbl = new javax.swing.JLabel();
-        passwordInput = new javax.swing.JTextField();
         passwordLbl = new javax.swing.JLabel();
+        passwordInput = new javax.swing.JPasswordField();
         buttonsPanel = new javax.swing.JPanel();
         registerUserBtn = new javax.swing.JButton();
         verifyLoginBtn = new javax.swing.JButton();
@@ -101,10 +101,15 @@ public class LoginGUI extends javax.swing.JFrame {
         usernameLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         usernameLbl.setText("Username:");
 
-        passwordInput.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         passwordLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         passwordLbl.setText("Password:");
+
+        passwordInput.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordInputActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout inputPaneLayout = new javax.swing.GroupLayout(inputPane);
         inputPane.setLayout(inputPaneLayout);
@@ -114,7 +119,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(usernameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(usernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(inputPaneLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(passwordLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -131,7 +136,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addGroup(inputPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLbl)
                     .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         registerUserBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -187,11 +192,15 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(inputPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void passwordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordInputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +246,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JPanel buttonsPanel;
     private javax.swing.JPanel inputPane;
     private javax.swing.JLabel loginFormLbl;
-    private javax.swing.JTextField passwordInput;
+    private javax.swing.JPasswordField passwordInput;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JButton registerUserBtn;
     private javax.swing.JTextField usernameInput;
