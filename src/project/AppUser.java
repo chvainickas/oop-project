@@ -23,7 +23,7 @@ public class AppUser extends User {
 
     // this writes the converted csv string to file
     public void register() {
-        try (FileWriter csvWriter = new FileWriter("src/project/users.csv", true)) {
+        try (FileWriter csvWriter = new FileWriter("src/project/login_details/users.csv", true)) {
             csvWriter.append(toCSVString()).append("\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class AppUser extends User {
 
     static int getNextUserID() {
         try (BufferedReader br = new BufferedReader(
-                new FileReader("src/project/users.csv"))) {
+                new FileReader("src/project/login_details/users.csv"))) {
             String lastLine = null;
             String currentLine;
             while ((currentLine = br.readLine()) != null) { // iterates to get to last line
