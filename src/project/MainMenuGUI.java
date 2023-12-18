@@ -50,7 +50,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         quizMenuBtn = new javax.swing.JButton();
@@ -60,6 +60,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        quizMenuBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         quizMenuBtn.setText("Quiz Menu");
         quizMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +68,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
             }
         });
 
+        adminBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         adminBtn.setText("Admin Panel");
         adminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,46 +79,41 @@ public class MainMenuGUI extends javax.swing.JFrame {
         mainMenuFormLbl.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
         mainMenuFormLbl.setText("Main Menu");
 
+        welcomeLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         welcomeLbl.setText("Welcome User!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(199, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                .createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(quizMenuBtn,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 214,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(204, 204, 204))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                layout.createSequentialGroup()
-                                                        .addComponent(welcomeLbl)
-                                                        .addGap(271, 271, 271))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                layout.createSequentialGroup()
-                                                        .addComponent(mainMenuFormLbl)
-                                                        .addGap(194, 194, 194)))));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(204, 204, 204))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(welcomeLbl)
+                        .addGap(271, 271, 271))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(mainMenuFormLbl)
+                        .addGap(194, 194, 194))))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(mainMenuFormLbl)
-                                .addGap(18, 18, 18)
-                                .addComponent(welcomeLbl)
-                                .addGap(26, 26, 26)
-                                .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminBtn)
-                                .addContainerGap(207, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(mainMenuFormLbl)
+                .addGap(18, 18, 18)
+                .addComponent(welcomeLbl)
+                .addGap(26, 26, 26)
+                .addComponent(quizMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminBtn)
+                .addContainerGap(189, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

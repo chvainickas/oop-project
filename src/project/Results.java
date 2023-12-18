@@ -41,7 +41,7 @@ public class Results{
     
     public ArrayList<Leader> getLeaderList() {
     conn = ManageDB.setConnection();
-    String query = "SELECT userName, score FROM users ORDER BY score DESC";
+    String query = "SELECT userName, score FROM users ORDER BY score ASC";
     ArrayList<Leader> leaderList = new ArrayList<>();
 
     try (Statement statement = conn.createStatement();

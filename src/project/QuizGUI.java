@@ -129,7 +129,7 @@ public class QuizGUI extends javax.swing.JFrame {
 
         lblImg.setText("Image here");
 
-        btnNextQuestion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNextQuestion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnNextQuestion.setText("Next");
         btnNextQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +151,7 @@ public class QuizGUI extends javax.swing.JFrame {
         txtareaQuestion.setFocusable(false);
         jScrollPane1.setViewportView(txtareaQuestion);
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExit.setText("Return to menu");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

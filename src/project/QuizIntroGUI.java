@@ -59,7 +59,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Climate Quiz");
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +81,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Welcome to the Climate Change Quiz");
 
-        btnStart.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnStart.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnStart.setText("Start test");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

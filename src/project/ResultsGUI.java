@@ -66,11 +66,12 @@ public class ResultsGUI extends javax.swing.JFrame {
         titleLBL.setText("Congratulations! You passed the test.");
 
         resultLBL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        resultLBL.setText("Your's result is ");
+        resultLBL.setText("Your result is ");
 
         pointsLBL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         pointsLBL.setText("Points");
 
+        exitBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         exitBTN.setText("Exit");
         exitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +79,7 @@ public class ResultsGUI extends javax.swing.JFrame {
             }
         });
 
+        reviewBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         reviewBTN.setText("Review");
         reviewBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +125,8 @@ public class ResultsGUI extends javax.swing.JFrame {
                     .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(125, 125, 125))
         );
+
+        resultLBL.getAccessibleContext().setAccessibleName("Your result is ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
