@@ -3,6 +3,8 @@ package project;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 class User {
     String email;
@@ -124,5 +126,37 @@ class User {
         }
         return false;
     }
+    // method to read csv file
+public static List<User> readUserDataFromCSV() {
+        List<User> userList = new ArrayList<>();
 
+        try (BufferedReader br = new BufferedReader(new FileReader("src/project/users.csv"))) {
+            String line;
+            br.readLine(); // ignore headings
+
+            while ((line = br.readLine()) != null) {
+                String[] userData = line.split(",");
+                if (userData.length >= 8) {
+                    try {
+                        User user = new User(userData[0], userData[1], userData[2], userData[3],
+                                Integer.parseInt(userData[4]), userData[5], userData[6],
+                                Integer.parseInt(userData[7]));
+                        userList.add(user);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error parsing line: " + line);
+                        e.printStackTrace(); // catch error
+                    }
+                }
+            }
+
+            // Set the users array after reading from CSV
+            userList.get(0).setUsers(userList.toArray(new User[0]));
+
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return userList;
+    }
+    
 }

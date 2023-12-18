@@ -5,13 +5,7 @@
 package project;
 
 import javax.swing.table.DefaultTableModel;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +30,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
     private void loadUserDataToTable() {
         // read user csv file and populate list
-        List<User> userList = readUserDataFromCSV();
+        List<User> userList = User.readUserDataFromCSV();
 
         // creates a new table model
         DefaultTableModel tableModel = new DefaultTableModel(
@@ -61,32 +55,6 @@ public class AdminGUI extends javax.swing.JFrame {
         usersTable.setModel(tableModel);
     }
 
-    // helps read the csv file
-    private List<User> readUserDataFromCSV() {
-        List<User> userList = new ArrayList<>();
-
-        try (BufferedReader br = new BufferedReader(
-                new FileReader("src/project/users.csv"))) {
-            String line;
-            br.readLine(); // ignore headings
-
-            while ((line = br.readLine()) != null) {
-                String[] userData = line.split(",");
-                if (userData.length >= 8) {
-                    User user = new User(
-                            userData[0], userData[1], userData[2],
-                            userData[3], Integer.parseInt(userData[4]),
-                            userData[5], userData[6], Integer.parseInt(userData[7]));
-                    userList.add(user);
-                }
-            }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-        return userList;
-    }
-
     private void removeSelectedUser() {
         removeUserBtn.setEnabled(false);
 
@@ -98,7 +66,7 @@ public class AdminGUI extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) usersTable.getModel();
             model.removeRow(selectedRow);
 
-            removeUserFromCSV(userID); // writes the update table into the csv
+            Admin.removeUserFromCSV(userID); // writes the update table into the csv
 
             removeUserBtn.setEnabled(true);
 
@@ -116,7 +84,7 @@ public class AdminGUI extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) usersTable.getModel();
         model.setRowCount(0); // clear existing rows
 
-        List<User> userList = readUserDataFromCSV(); // assuming you have a method to read user data
+        List<User> userList = User.readUserDataFromCSV(); // assuming you have a method to read user data
 
         for (User user : userList) {
             // check if string is in the username
@@ -128,48 +96,6 @@ public class AdminGUI extends javax.swing.JFrame {
                 });
             }
         }
-    }
-
-    private void removeUserFromCSV(int userID) {
-        String filePath = "src/project/users.csv";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            List<String> lines = br.lines().collect(Collectors.toList()); // reads all lines into the list
-
-            // finds the line with the specified userID
-            lines.removeIf(line -> {
-                String[] parts = line.split(",");
-                if (parts.length >= 5) { // makes sure there is at least 5 fields in the csv
-                    int currentUserID;
-                    try {
-                        currentUserID = Integer.parseInt(parts[4].trim());
-                    } catch (NumberFormatException e) {
-                        // if no userID don't remove anything
-                        return false;
-                    }
-
-                    return currentUserID == userID;
-                }
-                return false;
-            });
-
-            // writes the new users into csv after change
-            try (FileWriter writer = new FileWriter(filePath)) {
-                for (String line : lines) {
-                    writer.write(line + "\n");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // refreshes current users
-    private void reloadUserData() {
-        loadUserDataToTable();
-        JOptionPane.showMessageDialog(this, "Table refreshed successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
