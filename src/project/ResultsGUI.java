@@ -24,22 +24,23 @@ public class ResultsGUI extends javax.swing.JFrame {
         getContentPane().setBackground(Color.decode("#DDA0DD"));
         //Center form in screen
         setLocationRelativeTo(null);
-        
-         
     }
     
     public void setQuiz(Quiz quiz){
         this.quiz = quiz;
         Results res = new Results();
         
-        if(quiz != null){
-            //If quiz is loaded
-            //Insert score in database
+        if(quiz != null){ //If quiz is loaded
             int finalScore = res.calculateScore(quiz);
-            //ManageDB db = new ManageDB();
-            //ManageDB.setConnection();
-            //db.updateScore(1, finalScore);
-            pointsLBL.setText(res.score + "/" + quiz.questionList.length);
+            pointsLBL.setText(finalScore + "/" + quiz.questionList.length);
+            
+            if(finalScore < 7){
+                titleLBL.setText("You have failed the test. Better luck next time!");
+            }else if(finalScore >= 7 && finalScore < 12){
+                titleLBL.setText("You passed the text, congratulations!");
+            }else if(finalScore > 12){
+                titleLBL.setText("Your climate awareness is amazing, congratulations!");
+            }
         }
     }
 
@@ -63,7 +64,7 @@ public class ResultsGUI extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(754, 503));
 
         titleLBL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        titleLBL.setText("Congratulations! You passed the test.");
+        titleLBL.setText("Test performance message");
 
         resultLBL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         resultLBL.setText("Your result is ");
@@ -101,14 +102,14 @@ public class ResultsGUI extends javax.swing.JFrame {
                                 .addComponent(pointsLBL)
                                 .addGap(28, 28, 28))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(exitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(titleLBL))))
-                .addContainerGap(179, Short.MAX_VALUE))
+                        .addGap(228, 228, 228)
+                        .addComponent(exitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(titleLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,11 +120,11 @@ public class ResultsGUI extends javax.swing.JFrame {
                 .addComponent(resultLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pointsLBL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(125, 125, 125))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         resultLBL.getAccessibleContext().setAccessibleName("Your result is ");
