@@ -4,12 +4,28 @@
  */
 package project;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.sql.Connection;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author pylyp
  */
-public class ReviewGUI extends javax.swing.JFrame {
 
+
+public class ReviewGUI extends javax.swing.JFrame {
+    Quiz quiz;
+    Question question;
+    Connection conn = null;
+    int questionCount = 0;
+    Results res;
+    Review rev;
+    char userAns;
     /**
      * Creates new form ReviewGUI
      */
@@ -18,6 +34,104 @@ public class ReviewGUI extends javax.swing.JFrame {
         
         //Center form in screen
         setLocationRelativeTo(null);
+        
+        //Set background color for elements
+        getContentPane().setBackground(Color.decode("#B0C4DE"));
+        questionText.setBackground(Color.decode("#B0C4DE"));
+        jScrollPane1.setBorder(null);
+        explainText.setBackground(Color.decode("#B0C4DE"));
+        jScrollPane2.setBorder(null);
+        radAnswer1.setBackground(Color.decode("#B0C4DE"));
+        radAnswer2.setBackground(Color.decode("#B0C4DE"));
+        radAnswer3.setBackground(Color.decode("#B0C4DE"));
+        radAnswer4.setBackground(Color.decode("#B0C4DE"));
+    }
+    public void setRev(Quiz quiz){
+        this.quiz = quiz;
+        Results res = new Results();
+        
+        //Load questions, answers and explainations
+        quiz.loadQuestions();
+        quiz.loadAnswers();
+        res.loadExplain();
+        
+        //make default color for rad btn
+        radAnswer1.setForeground(Color.black);
+        radAnswer2.setForeground(Color.black);
+        radAnswer3.setForeground(Color.black);
+        radAnswer4.setForeground(Color.black);
+        
+        question = quiz.questionList[questionCount];
+        Answer ansA = question.getAnswers()[0];
+        Answer ansB = question.getAnswers()[1];
+        Answer ansC = question.getAnswers()[2];
+        Answer ansD = question.getAnswers()[3];
+        rev = new Review();
+        rev = res.explainations[questionCount];
+        
+        //Load question, answers and explainations 
+        questionTitleLBL.setText("Question " + question.getNumber() + "/" + quiz.questionList.length + ": ");
+        //load section
+        sectionLBL.setText(question.getSection());
+        questionText.setText(question.getText());
+        radAnswer1.setText(ansA.getText());
+        radAnswer2.setText(ansB.getText());
+        radAnswer3.setText(ansC.getText());
+        radAnswer4.setText(ansD.getText());
+        explainText.setText(rev.getExplain());
+        
+        //Load image
+        try{
+            BufferedImage bufferedImage = ImageIO.read(getClass().getResource("img/" + question.getImgPath()));
+            Image image = bufferedImage.getScaledInstance(375, 350, Image.SCALE_DEFAULT); 
+            ImageIcon icon = new ImageIcon(image);
+            imgQuestion.setIcon(icon);
+        }catch(IOException e){
+            System.out.println("Error in getting image: " + e);
+        }
+        userAns = quiz.userAnswers.get(questionCount);
+        Question q = quiz.questionList[questionCount];
+        //showing the user answer
+        switch(userAns){
+            case 'A':
+                radAnswer1.setSelected(true);
+                if (!(q.checkAnswer('A'))){
+                    radAnswer1.setForeground(Color.RED);
+                }
+                break;
+            case 'B':
+                radAnswer2.setSelected(true);
+                if (!(q.checkAnswer('B'))){
+                    radAnswer2.setForeground(Color.RED);
+                }
+                break;
+            case 'C':
+                radAnswer3.setSelected(true);
+                if (!(q.checkAnswer('C'))){
+                    radAnswer3.setForeground(Color.RED);
+                }
+                break;
+            case 'D':
+                radAnswer4.setSelected(true);
+                if (!(q.checkAnswer('D'))){
+                    radAnswer4.setForeground(Color.RED);
+                }
+                break;
+            default:
+                System.out.println("Nothing choosed");
+                break;
+        }
+        //showing the correct answer
+        if (q.checkAnswer('A')){
+            radAnswer1.setForeground(Color.decode("#228B22"));
+        }else if(q.checkAnswer('B')){
+            radAnswer2.setForeground(Color.decode("#228B22"));
+        }else if(q.checkAnswer('C')){
+            radAnswer3.setForeground(Color.decode("#228B22"));
+        }else if(q.checkAnswer('D')){
+            radAnswer4.setForeground(Color.decode("#228B22"));
+        }
+        
     }
 
     /**
@@ -33,7 +147,6 @@ public class ReviewGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         imgQuestion = new javax.swing.JLabel();
         questionTitleLBL = new javax.swing.JLabel();
-        questionNumberLBL = new javax.swing.JLabel();
         radAnswer1 = new javax.swing.JRadioButton();
         radAnswer3 = new javax.swing.JRadioButton();
         radAnswer2 = new javax.swing.JRadioButton();
@@ -42,28 +155,35 @@ public class ReviewGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        isCorrectAns1 = new javax.swing.JLabel();
-        isCorrectAns2 = new javax.swing.JLabel();
-        isCorrectAns3 = new javax.swing.JLabel();
-        isCorrectAns4 = new javax.swing.JLabel();
         nextBTN = new javax.swing.JButton();
         exitBTN = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        questionText = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        sectionLBL = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        explainText = new javax.swing.JTextArea();
+        prevBTN = new javax.swing.JButton();
+        leaderBoardBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(754, 503));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Review. You can check correct answers compare your's one.");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Review");
 
+        imgQuestion.setText("IMAGE");
+
+        questionTitleLBL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         questionTitleLBL.setText("Question number");
 
-        questionNumberLBL.setText("num");
-
         groupAnswersBTN.add(radAnswer1);
+        radAnswer1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         radAnswer1.setText("Answer 1");
         radAnswer1.setInheritsPopupMenu(true);
 
         groupAnswersBTN.add(radAnswer3);
+        radAnswer3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         radAnswer3.setText("Answer 3");
         radAnswer3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,27 +192,26 @@ public class ReviewGUI extends javax.swing.JFrame {
         });
 
         groupAnswersBTN.add(radAnswer2);
+        radAnswer2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         radAnswer2.setText("Answer 2");
 
         groupAnswersBTN.add(radAnswer4);
+        radAnswer4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         radAnswer4.setText("Answer 4");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("A.");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("B.");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("C.");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("D.");
 
-        isCorrectAns1.setText("❌");
-
-        isCorrectAns2.setText("✅");
-
-        isCorrectAns3.setText("❌");
-
-        isCorrectAns4.setText("❌");
-
+        nextBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nextBTN.setText("Next");
         nextBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,93 +219,138 @@ public class ReviewGUI extends javax.swing.JFrame {
             }
         });
 
+        exitBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         exitBTN.setText("Exit");
+        exitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBTNActionPerformed(evt);
+            }
+        });
+
+        questionText.setColumns(20);
+        questionText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        questionText.setLineWrap(true);
+        questionText.setRows(5);
+        jScrollPane1.setViewportView(questionText);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Section");
+
+        sectionLBL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        sectionLBL.setText("Num");
+
+        explainText.setColumns(20);
+        explainText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        explainText.setLineWrap(true);
+        explainText.setRows(5);
+        explainText.setMaximumSize(new java.awt.Dimension(332, 129));
+        jScrollPane2.setViewportView(explainText);
+
+        prevBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        prevBTN.setText("Previous");
+        prevBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevBTNActionPerformed(evt);
+            }
+        });
+
+        leaderBoardBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        leaderBoardBTN.setText("Leader Board");
+        leaderBoardBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaderBoardBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(277, 277, 277)
-                .addComponent(nextBTN)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(questionTitleLBL)
-                                .addGap(18, 18, 18)
-                                .addComponent(questionNumberLBL))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(isCorrectAns1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(isCorrectAns2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(31, 31, 31)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(radAnswer2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(radAnswer1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(isCorrectAns4)
-                                            .addGap(31, 31, 31)
-                                            .addComponent(radAnswer4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(isCorrectAns3)
-                                            .addGap(32, 32, 32)
-                                            .addComponent(radAnswer3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(exitBTN)
-                        .addGap(65, 65, 65))))
+                                .addComponent(jLabel1)
+                                .addGap(124, 124, 124))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(questionTitleLBL)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sectionLBL)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 223, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(exitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(leaderBoardBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prevBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(radAnswer3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+                            .addComponent(radAnswer1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(radAnswer4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(radAnswer2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(imgQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(sectionLBL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(questionTitleLBL)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionTitleLBL)
-                    .addComponent(questionNumberLBL))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radAnswer1)
-                    .addComponent(radAnswer3)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(isCorrectAns1)
-                    .addComponent(isCorrectAns3))
-                .addGap(29, 29, 29)
+                    .addComponent(radAnswer1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radAnswer2)
-                    .addComponent(radAnswer4)
                     .addComponent(jLabel3)
+                    .addComponent(radAnswer2))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radAnswer3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(isCorrectAns2)
-                    .addComponent(isCorrectAns4))
-                .addGap(18, 18, 18)
-                .addComponent(nextBTN)
-                .addGap(18, 18, 18)
-                .addComponent(exitBTN)
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(radAnswer4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nextBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(exitBTN)
+                        .addComponent(prevBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(leaderBoardBTN)))
+                .addContainerGap())
         );
 
         pack();
@@ -198,7 +362,36 @@ public class ReviewGUI extends javax.swing.JFrame {
 
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
         // TODO add your handling code here:
+        if (questionCount < 14){
+            questionCount++;
+            setRev(quiz);
+        } else{
+            setVisible(false);
+            LeaderBoardGUI t = new LeaderBoardGUI();
+            t.setVisible(true);
+        }
+        
     }//GEN-LAST:event_nextBTNActionPerformed
+
+    private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitBTNActionPerformed
+
+    private void prevBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBTNActionPerformed
+        // TODO add your handling code here:
+        if(questionCount>0){
+            questionCount--;
+            setRev(quiz);
+        }
+    }//GEN-LAST:event_prevBTNActionPerformed
+
+    private void leaderBoardBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardBTNActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        LeaderBoardGUI t = new LeaderBoardGUI();
+        t.setVisible(true);
+    }//GEN-LAST:event_leaderBoardBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,23 +430,26 @@ public class ReviewGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitBTN;
+    private javax.swing.JTextArea explainText;
     private javax.swing.ButtonGroup groupAnswersBTN;
     private javax.swing.JLabel imgQuestion;
-    private javax.swing.JLabel isCorrectAns1;
-    private javax.swing.JLabel isCorrectAns2;
-    private javax.swing.JLabel isCorrectAns3;
-    private javax.swing.JLabel isCorrectAns4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton leaderBoardBTN;
     private javax.swing.JButton nextBTN;
-    private javax.swing.JLabel questionNumberLBL;
+    private javax.swing.JButton prevBTN;
+    private javax.swing.JTextArea questionText;
     private javax.swing.JLabel questionTitleLBL;
     private javax.swing.JRadioButton radAnswer1;
     private javax.swing.JRadioButton radAnswer2;
     private javax.swing.JRadioButton radAnswer3;
     private javax.swing.JRadioButton radAnswer4;
+    private javax.swing.JLabel sectionLBL;
     // End of variables declaration//GEN-END:variables
 }

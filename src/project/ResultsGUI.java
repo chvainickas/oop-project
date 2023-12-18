@@ -4,6 +4,8 @@
  */
 package project;
 
+import java.awt.Color;
+
 /**
  *
  * @author pylyp
@@ -13,21 +15,31 @@ public class ResultsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ResultsGUI
      */
+    Results res;
     Quiz quiz;
     
     public ResultsGUI() {
         initComponents();
-        
+        //Set background color for elements
+        getContentPane().setBackground(Color.decode("#DDA0DD"));
         //Center form in screen
         setLocationRelativeTo(null);
+        
+         
     }
     
     public void setQuiz(Quiz quiz){
         this.quiz = quiz;
+        Results res = new Results();
         
         if(quiz != null){
             //If quiz is loaded
-            pointsLBL.setText(quiz.finalScore + "/" + quiz.questionList.length);
+            //Insert score in database
+            int finalScore = res.calculateScore(quiz);
+            //ManageDB db = new ManageDB();
+            //ManageDB.setConnection();
+            //db.updateScore(1, finalScore);
+            pointsLBL.setText(res.score + "/" + quiz.questionList.length);
         }
     }
 
@@ -123,6 +135,7 @@ public class ResultsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         ReviewGUI revGUI = new ReviewGUI();
+        revGUI.setRev(quiz);
         revGUI.setVisible(true);
     }//GEN-LAST:event_reviewBTNActionPerformed
 
