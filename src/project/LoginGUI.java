@@ -4,6 +4,7 @@
  */
 package project;
 
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,12 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     public LoginGUI() {
         initComponents();
+        
+        //Set color
+        getContentPane().setBackground(Color.decode("#FF8282"));
+        inputPane.setBackground(Color.decode("#FF8282"));
+        buttonsPanel.setBackground(Color.decode("#FF8282"));
+        
         verifyLoginBtn.addActionListener((java.awt.event.ActionEvent evt) -> {
             verifyLoginBtnActionPerformed(evt);
         });

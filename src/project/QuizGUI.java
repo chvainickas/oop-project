@@ -22,6 +22,7 @@ public class QuizGUI extends javax.swing.JFrame {
     /**
      * Creates new form QuizForm
      */
+    User currentUser;
     int questionCount = 0;
     Quiz quiz;
     Question question;
@@ -71,6 +72,11 @@ public class QuizGUI extends javax.swing.JFrame {
         }catch(IOException e){
             System.out.println("Error in getting image: " + e);
         }
+    }
+    
+    public void setUser(User currentUser)
+    {
+        this.currentUser = currentUser;
     }
 
     /**
@@ -314,7 +320,11 @@ public class QuizGUI extends javax.swing.JFrame {
                 int finalScore = quiz.calculateScore();
                 ManageDB db = new ManageDB();
                 ManageDB.setConnection();
-                db.updateScore(1, finalScore);
+                //Update score for current user
+                if(this.currentUser != null)
+                {
+                   db.updateScore(this.currentUser.userID, finalScore); 
+                }
                 
                 //Call to the results form (Maks results form)
                 setVisible(false);

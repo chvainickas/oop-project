@@ -79,7 +79,7 @@ public class ManageDB {
     
     public void createTables(){
         try{
-            String tblUsers = "CREATE TABLE IF NOT EXISTS users(userID INT PRIMARY KEY, userName VARCHAR(100) NOT NULL, password VARCHAR(100) NOT NULL, score INT, firstName VARCHAR(100), lastName VARCHAR(200), email VARCHAR(200), role VARCHAR(50), age INT, terms BOOLEAN)";
+            String tblUsers = "CREATE TABLE IF NOT EXISTS users(userID INT PRIMARY KEY, userName VARCHAR(100) NOT NULL, password VARCHAR(100) NOT NULL, score INT, firstName VARCHAR(100), lastName VARCHAR(200), email VARCHAR(200), role VARCHAR(50), age INT)";
             Statement st = conn.createStatement();
             st.execute(tblUsers);
             st.close();
@@ -101,7 +101,7 @@ public class ManageDB {
                 }
                 lineCounter++;
                 String[] values = line.split(","); //Split by comma delimiter
-                //email,userName,userPass,role,userID,firstName,lastName,age,terms,adminID
+                //email,userName,userPass,role,userID,firstName,lastName,age,adminID
                 String email = values[0];
                 String userName = values[1];
                 String userPass = values[2];
@@ -110,7 +110,6 @@ public class ManageDB {
                 String firstName = values[5];
                 String lastName = values[6];
                 int age = Integer.parseInt(values[7]);
-                boolean terms = Boolean.parseBoolean(values[8]);
                 
                 try{
                     String selUsers = "SELECT userID from users where userID=" + userID;
@@ -119,11 +118,11 @@ public class ManageDB {
                     if(!rs.next())
                     {
                         //Id is not set
-                        String queryIns = "INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?,?)";
+                        String queryIns = "INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?)";
                         try{
                             //Create prepared statement
                             PreparedStatement pstmt = conn.prepareStatement(queryIns);
-                            //Set variables for table: userID, userName, password, score, firstName, lastName, email, role, age, terms
+                            //Set variables for table: userID, userName, password, score, firstName, lastName, email, role, age
                             pstmt.setInt(1, userID);
                             pstmt.setString(2, userName);
                             pstmt.setString(3, userPass);
@@ -133,7 +132,6 @@ public class ManageDB {
                             pstmt.setString(7, email);
                             pstmt.setString(8, role);
                             pstmt.setInt(9, age);
-                            pstmt.setBoolean(10, terms);
 
                             pstmt.execute();
                             //Close statement after use

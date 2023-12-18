@@ -4,6 +4,7 @@
  */
 package project;
 
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -19,6 +20,13 @@ public class AdminGUI extends javax.swing.JFrame {
      */
     public AdminGUI() {
         initComponents();
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
+        //Set color
+        buttonsPane.setBackground(Color.decode("#FF8282"));
+        getContentPane().setBackground(Color.decode("#FF8282"));
+        
         loadUserDataToTable();
         removeUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

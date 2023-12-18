@@ -15,6 +15,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
     /**
      * Creates new form QuizIntroductionForm
      */
+    private static User currentUser;
     public QuizIntroGUI() {
         initComponents();
         
@@ -32,6 +33,12 @@ public class QuizIntroGUI extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
 
     }
+    
+    public void setUser(User currentUser){
+        this.currentUser = currentUser;
+        //Change text on user
+        lblUser.setText("Hello, " + this.currentUser.userName);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +54,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
         txtareaSubtitle = new javax.swing.JTextArea();
         lblTitle = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
+        lblUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Climate Quiz");
@@ -81,6 +89,9 @@ public class QuizIntroGUI extends javax.swing.JFrame {
             }
         });
 
+        lblUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblUser.setText("Hello, [user]");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,12 +106,11 @@ public class QuizIntroGUI extends javax.swing.JFrame {
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 82, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,8 +118,10 @@ public class QuizIntroGUI extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addGap(40, 40, 40)
                 .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,6 +140,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false); //Refers to itself
         QuizGUI quiz = new QuizGUI();
+        quiz.setUser(this.currentUser);
         quiz.setVisible(true);
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -172,6 +185,7 @@ public class QuizIntroGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnStart;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JTextArea txtareaSubtitle;
     // End of variables declaration//GEN-END:variables
 }

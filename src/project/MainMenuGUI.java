@@ -4,6 +4,8 @@
  */
 package project;
 
+import java.awt.Color;
+
 /**
  *
  * @author edward
@@ -19,6 +21,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
     public MainMenuGUI(User user) {
         initComponents();
         MainMenuGUI.currentUser = user;
+        
+        //Center form in screen
+        setLocationRelativeTo(null);
+        //Set color
+        getContentPane().setBackground(Color.decode("#FF8282"));
 
         if ("Admin".equals(currentUser.getRole())) {
             adminBtn.setVisible(true); // if the role is admin show the admin panel button
@@ -118,6 +125,10 @@ public class MainMenuGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         QuizIntroGUI quizInt = new QuizIntroGUI();
+        //Pass current user to quiz
+        if(MainMenuGUI.currentUser != null){
+            quizInt.setUser(MainMenuGUI.currentUser);
+        }
         quizInt.setVisible(true);
     }// GEN-LAST:event_quizMenuBtnActionPerformed
 
