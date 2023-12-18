@@ -24,9 +24,8 @@ public class ManageDB {
     private static Connection conn = null;
     
     public static Connection setConnection(){
-        //Create database if not exists
         String user = "root";
-        String pwd = "BDRvKy4bZely4JrAc2Pf";
+        String pwd = "";
         String dbName = "climateChangeQuiz";
         String url = "jdbc:mysql://localhost:3306/" + dbName;
         
@@ -41,9 +40,10 @@ public class ManageDB {
     }
     
     public void createDB(){
+        //First connection with no password to create database in case it doesn't exist
         String url = "jdbc:mysql://localhost:3306";
         String user = "root";
-        String pwd = "BDRvKy4bZely4JrAc2Pf";
+        String pwd = "";
         try{
             conn = DriverManager.getConnection(url, user, pwd);
         }catch(SQLException sqlE){
@@ -65,7 +65,7 @@ public class ManageDB {
         //Once the database is created, it sets the connection to it
         String dbName = "climateChangeQuiz";
         user = "root";
-        pwd = "BDRvKy4bZely4JrAc2Pf";
+        pwd = "";
         url = "jdbc:mysql://localhost:3306/" + dbName;
         
         try{
