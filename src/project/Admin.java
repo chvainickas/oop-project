@@ -15,7 +15,7 @@ public class Admin extends User {
         super(email, userName, userPass, role, userID, firstName, lastName, age);
     }
     public static void removeUserFromCSV(int userID) {
-        String filePath = "src/project/users.csv";
+        String filePath = "src/project/login_details/users.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             List<String> lines = br.lines().collect(Collectors.toList()); // reads all lines into the list

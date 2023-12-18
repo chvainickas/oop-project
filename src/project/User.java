@@ -102,7 +102,7 @@ class User {
     }
 
     public static boolean login(String inputUsername, String inputPassword) {
-        String filePath = "src/project/users.csv"; // directory to file path 
+        String filePath = "src/project/login_details/users.csv"; // directory to file path
 
         try (BufferedReader csvReader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -126,11 +126,12 @@ class User {
         }
         return false;
     }
+
     // method to read csv file
-public static List<User> readUserDataFromCSV() {
+    public static List<User> readUserDataFromCSV() {
         List<User> userList = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/project/users.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/project/login_details/users.csv"))) {
             String line;
             br.readLine(); // ignore headings
 
@@ -149,14 +150,11 @@ public static List<User> readUserDataFromCSV() {
                 }
             }
 
-            // Set the users array after reading from CSV
-            userList.get(0).setUsers(userList.toArray(new User[0]));
-
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
         }
 
         return userList;
     }
-    
+
 }

@@ -1,2 +1,5 @@
-email,userName,userPass,role,userID,firstName,lastName,age,terms,adminID
-test@hotmail.com,user1,abc123.,user,1,testy,testerson,42,1,1
+email,userName,userPass,role,userID,firstName,lastName,age
+user@example.com,username,password,User,1,John,Doe,25
+admin@example.com,admin,admin,Admin,2,Admin,Admin,99
+user@example.com,username1,password,User,3,John,Doe,25
+user@example.com,username2,password,User,14,John,Doe,25
